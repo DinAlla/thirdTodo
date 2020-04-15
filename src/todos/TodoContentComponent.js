@@ -11,6 +11,7 @@ class TodoContentComponent extends React.Component {
         };
         this.addTodo = this.addTodo.bind(this);
         this.updateTodo = this.updateTodo.bind(this);
+        this.deleteTodo = this.deleteTodo.bind(this);
     }
 
     addTodo(newTodo) {
@@ -38,14 +39,20 @@ class TodoContentComponent extends React.Component {
         });
     }
 
+    deleteTodo(id) {
+        this.setState({
+            todos: this.state.todos.filter(todo => todo.id !== id)
+        });
+    }
+
     render() {
-        console.log(this.state.todos);
         return (
             <div className="todo-content">
                 <Grid container spacing={3}>
                     <AddTodoComponent addTodo={this.addTodo} />
                     <TodoListComponent todos={this.state.todos}
                                        updateTodo={this.updateTodo}
+                                       deleteTodo={this.deleteTodo}
                     />
                 </Grid>
             </div>

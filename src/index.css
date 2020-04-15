@@ -41,14 +41,29 @@ code {
   box-shadow: 0 2px 12px 1px black;
   justify-content: space-between;
   align-items: center;
-  margin: 1% auto;
+  margin: 4% auto;
 }
 
-.todo div {
+.todoTitle {
   display: flex;
   justify-content: space-between;
 }
 
-.todoInput, .todoTitle {
+.todoInput, .todoTitleContainer {
   width: 250px;
+}
+
+.todo-list-container {
+  position: relative;
+}
+
+.back-container {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+}
+
+.done {
+  text-decoration: line-through;
+  opacity: 0.6;
 }

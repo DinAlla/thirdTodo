@@ -22,6 +22,7 @@ class AddTodoComponent extends Component {
     onClickAddTodo() {
         const newTodo = {
             status: false,
+            description: '',
             title: this.state.inputValue
         };
         this.props.addTodo(newTodo);
