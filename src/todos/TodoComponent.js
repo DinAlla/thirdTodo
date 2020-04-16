@@ -11,7 +11,7 @@ class TodoComponent extends Component {
 
         this.state = {
             isShowDescription: false,
-            descriptionValue: '',
+            descriptionValue: props.description,
             isEditTitle: false,
             title: props.title
         };
@@ -34,7 +34,9 @@ class TodoComponent extends Component {
     onChangeCheckbox(e) {
         this.props.updateTodo({
             id: this.props.id,
-            status: e.target.checked
+            status: e.target.checked,
+            title: this.state.title,
+            description: this.state.descriptionValue
         });
     }
 
@@ -54,6 +56,8 @@ class TodoComponent extends Component {
         });
         this.props.updateTodo({
             id: this.props.id,
+            status: this.props.status,
+            title: this.state.title,
             description: e.target.value
         });
     }
@@ -67,7 +71,9 @@ class TodoComponent extends Component {
     onUpdateTitle() {
         this.props.updateTodo({
             id: this.props.id,
-            title: this.state.title
+            title: this.state.title,
+            description: this.state.descriptionValue,
+            status: this.props.status
         });
         this.setState({
             isEditTitle: false
